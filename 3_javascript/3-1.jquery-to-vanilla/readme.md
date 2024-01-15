@@ -1,4 +1,4 @@
-* vanilla js とはプラグインやライブラリを使わずに書かれたJavaScriptのこと
+* vanilla js とはプラグインやライブラリを使わずに書かれたJavaScriptの通称
 
 # jQueryからVanilla JavaScriptへ
 
