@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3-2-3</title>
+  <style>span {
+    padding: 0 30px;;
+  }</style>
+</head>
+<body>
+  <p><button>-1</button><span class="count">1</span><button>+1</button></p>
+  <script>
+    let count = document.getElementsByClassName('count')
+    let button = document.getElementsByTagName('button')
+    button[0].addEventListener('click',()=>{
+      count[0].innerHTML = Number(count[0].innerHTML) - 1
+    })
+    button[1].addEventListener('click',()=>{
+      count[0].innerHTML = Number(count[0].innerHTML) + 1
+    })
+  </script>
+</body>
+</html>

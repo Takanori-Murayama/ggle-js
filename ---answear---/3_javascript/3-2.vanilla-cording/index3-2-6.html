@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tab changing</title>
+  <style>
+    .content {
+      width: 100%;
+      height: 200px;
+      display: none;
+    }
+    .content.active {
+      display: block;
+    }
+    .tab {
+      background-color: gray;
+    }
+    .tab1.active {background-color: aquamarine;}
+    .tab2.active {background-color: salmon;}
+    .tab3.active {background-color: yellow;}
+  </style>
+</head>
+<body>
+  <div class="tabs">
+    <button class="tab tab1 active">タブ１</button>
+    <button class="tab tab2">タブ２</button>
+    <button class="tab tab3">タブ３</button>
+  </div>
+  <div class="contents">
+    <div class="content content1 active" style="background-color: aquamarine;">
+      <p>コンテンツ１</p>
+    </div>
+    <div class="content content2" style="background-color: salmon;">
+      <p>コンテンツ２</p>
+    </div>
+    <div class="content content3" style="background-color: yellow;">
+      <p>コンテンツ３</p>
+    </div>
+  </div>
+  <script>
+    const tabs = document.getElementsByClassName('tab')
+    const contents = document.getElementsByClassName('content')
+    for(let i=0;i<tabs.length;i++){
+      tabs[i].addEventListener('click', ()=>{
+        for(let x=0;x<tabs.length;x++){
+          tabs[x].classList.remove('active')
+          contents[x].classList.remove('active')
+        }
+        tabs[i].classList.add('active')
+        contents[i].classList.add('active')
+      })
+    }
+  </script>
+</body>
+</html>

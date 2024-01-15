@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p><input type="text"><button>追加</button></p>
+  <div>
+    <p>TODOリスト</p>
+    <ul id="js-list">
+    </ul>
+  </div>
+
+  <script>
+    let button = document.getElementsByTagName('button')
+    
+    button[0].addEventListener('click',()=>{
+      let input = document.getElementsByTagName('input')
+      let list = document.querySelector('#js-list')
+      let newElement = document.createElement('li')
+      newElement.innerHTML = `<button>${input[0].value}</button>`
+      list.appendChild(newElement)
+      input[0].value = ''
+      let items = list.getElementsByTagName('li')
+      for(let i=0;i<items.length;i++){
+        items[i].addEventListener('click',()=>{
+          items[i].remove()
+        });
+      }
+    })
+  </script>
+</body>
+</html>

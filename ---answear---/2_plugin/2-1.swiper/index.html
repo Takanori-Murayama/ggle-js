@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+</head>
+<body>
+  <div class="mv">
+    <div class="swiper-mv swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://picsum.photos/id/227/1920/1080" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/228/1920/1080" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/229/1920/1080" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/237/1920/1080" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/238/1920/1080" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/239/1920/1080" alt="がぞう"></div>
+      </div>
+    </div>
+    <p>ここがメインビュー</p>
+  </div>
+  <div class="column">
+    <div class="swiper-main swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://picsum.photos/id/227/1000/540" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/228/1000/540" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/229/1000/540" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/237/1000/540" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/238/1000/540" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/239/1000/540" alt="がぞう"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <div class="swiper-thumb swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://picsum.photos/id/227/400/200" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/228/400/200" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/229/400/200" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/237/400/200" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/238/400/200" alt="がぞう"></div>
+        <div class="swiper-slide"><img src="https://picsum.photos/id/239/400/200" alt="がぞう"></div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    body * {box-sizing: border-box;} body {margin:0;}
+    .mv {width: 100%;height: 100dvh;position: relative; overflow: hidden;}
+    .mv p {position: absolute;background-color: white; top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 100;}
+    .swiper-mv {position: absolute;top: 0;left: 0;}
+    .column {padding: 0 20px;margin: 0 auto;max-width: 1040px;width: 100%;}
+    .swiper {width: 100%;}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiperMv = new Swiper('.swiper-mv',{
+      effect: 'fade',
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: false,
+      }
+    })
+    const swiperThumb = new Swiper('.swiper-thumb',{
+      slidesPerView: 3,
+    })
+    const swiperMain = new Swiper('.swiper-main',{
+      centered: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: swiperThumb
+      }
+    })
+  </script>
+</body>
+</html>

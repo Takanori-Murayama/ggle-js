@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <section><h2>section1</h2></section>
+  <section><h2>section2</h2></section>
+  <section>
+    <h2>section3</h2>
+    <p class="target">
+      <span>T</span>
+      <span>a</span>
+      <span>r</span>
+      <span>g</span>
+      <span>e</span>
+      <span>t</span>
+    </p>
+  </section>
+  <style>
+    section { height: 100vh; }
+    .target { font-size: 32px; }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger)
+    gsap.fromTo(".target span",{
+      autoAlpha:0
+    },{
+      duration:3,
+      autoAlpha:1,
+      stagger: 0.2,
+      scrollTrigger:{
+        trigger:".target",
+        start:"top center",
+        markers:true
+      }
+    });
+  </script>
+</body>
+</html>

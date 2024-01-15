@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div style="height: 300vh; background-color:yellow;">
+    <div style="height: 100vh;"></div>
+    <p>hello jquery</p>
+    <p id="js-fadein">hello jquery</p>
+    <p>hello jquery</p>
+  </div>
+
+  <style>
+    #js-fadein {
+      opacity: 0;
+      transition: opacity .5s ease;
+    }
+    #js-fadein.js-fadein-done {
+      opacity: 1;
+    }
+  </style>
+  
+  <script>
+    const element = document.getElementById('js-fadein');
+
+    function fadeIn() {
+      if (element.getBoundingClientRect().top - window.innerHeight / 2 < 0) {
+        element.classList.add('js-fadein-done');
+        console.log('if');
+        // Remove the scroll event listener once the element has faded in
+        window.removeEventListener('scroll', fadeIn);
+      }
+    }
+
+    window.addEventListener('scroll', fadeIn);
+  </script>
+</body>
+</html>

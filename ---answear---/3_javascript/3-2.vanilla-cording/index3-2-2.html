@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3-2-2</title>
+  <style>.text {color:blue;}</style>
+</head>
+<body>
+  <p class="letters">この文章を書き換えます。</p>
+  <button name="target">文字を書き換え</button>
+  <p class="letters">この文章を書き換えます。</p>
+  <button name="target">文字を書き換え</button>
+  <p class="letters">この文章を書き換えます。</p>
+  <button name="target">文字を書き換え</button>
+  <script>
+    let letters = document.getElementsByClassName('letters')
+    let button = document.getElementsByName('target')
+    button[0].addEventListener('click',()=>{
+      letters[0].innerHTML = '<p class="text">書き換えました！</p>'
+    })
+    button[1].addEventListener('click',()=>{
+      letters[1].textContent = '<p class="text">書き換えました！</p>'
+    })
+    button[2].addEventListener('click',()=>{
+      letters[2].inner = '<p class="text">書き換えました！</p>'
+    })
+  </script>
+</body>
+</html>

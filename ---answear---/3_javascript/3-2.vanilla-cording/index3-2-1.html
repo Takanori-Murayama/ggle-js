@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3-2-1 Drawer menu</title>
+  <style>
+    .drawer {background-color: aqua; position:fixed;top:50%;left: 100%; width: 100%; height: 50%;transition:left 0.5s ease;}
+  </style>
+</head>
+<body style="height: 200vh;">
+  <div class="drawer">
+    <p>ドロワー</p>
+  </div>
+  <button type="button">ドロワーオープン</button>
+  <script>
+    let button = document.getElementsByTagName('button')
+    let drawer = document.getElementsByClassName('drawer')
+    button[0].addEventListener('click',()=>{
+      if (drawer[0].classList.contains('open')) {
+        drawer[0].style.left = "100%"
+        drawer[0].classList.remove('open')
+      } else {
+        drawer[0].style.left = "0"
+        drawer[0].classList.add('open')
+      }
+    })
+  </script>
+</body>
+</html>

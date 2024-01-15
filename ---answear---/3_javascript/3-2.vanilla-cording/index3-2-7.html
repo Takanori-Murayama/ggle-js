@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3-2-7</title>
+</head>
+<body>
+  <p class="timer">「目標時刻まであと<span class="h">0</span>時間<span class="m">00</span>分<span class="s">00</span>秒」</p>
+  <p class="target">目標時刻「<span class="h">0</span>時間<span class="m">00</span>分<span class="s">00</span>秒」</p>
+  <script>
+    const targetTime = new Date("2024-01-15T08:30:00") // 目標時刻
+    const timer = document.getElementsByClassName('timer')[0]
+    // 目標時刻
+    const target = document.getElementsByClassName('target')[0]
+    const targetH = target.getElementsByClassName('h')[0]
+    targetH.innerHTML = targetTime.getHours()
+    target.getElementsByClassName('m')[0].innerHTML = targetTime.getMinutes()
+    target.getElementsByClassName('s')[0].innerHTML = targetTime.getSeconds()
+    // 時刻の差分
+    const changeTime = () => {
+      const now = new Date() //現在時刻
+      let diff = (targetTime.getTime() - now.getTime())
+      const h = timer.getElementsByClassName('h')[0]
+      h.innerHTML = Math.floor(diff / 60 / 60 / 1000)
+      const m = timer.getElementsByClassName('m')[0]
+      m.innerHTML = Math.floor((diff / 60 / 1000) % 60)
+      const s = timer.getElementsByClassName('s')[0]
+      s.innerHTML = Math.floor((diff / 1000 ) % 60)
+    }
+    changeTime()
+    setInterval(changeTime,1000)
+  </script>
+</body>
+</html>

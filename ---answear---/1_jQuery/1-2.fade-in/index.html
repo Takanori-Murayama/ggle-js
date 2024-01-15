@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div style="height: 300vh; background-color:antiquewhite;">
+    <div style="height: 100vh;"></div>
+    <p>hello jquery</p>
+    <p id="js-fadein">hello jquery</p>
+    <p>hello jquery</p>
+  </div>
+
+  <style>
+    #js-fadein {
+      opacity: 0;
+      transition: opacity .5s ease;
+    }
+    #js-fadein.js-fadein-done {
+      opacity: 1;
+    }
+  </style>
+  
+  <script src="../jquery-3.7.1.min.js"></script>
+  <script>
+    console.log('start')
+    const element = $('#js-fadein').offset()
+    $(window).scroll(()=>{
+      // console.log('scroll')
+      // console.log($(this).scrollTop())
+      console.log(element.top - $(window).height() / 2)
+      if($(window).scrollTop() > element.top - $(window).height() / 2){
+        $('#js-fadein').addClass('js-fadein-done')
+        console.log('if')
+      }
+    })
+  </script>
+</body>
+</html>

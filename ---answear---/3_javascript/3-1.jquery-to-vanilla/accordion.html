@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color: yellow;">
+  <section class="faq">
+    <div class="qa">
+      <button class="q">質問１</button>
+      <p class="a">回答１</p>
+    </div>
+    <div class="qa">
+      <button class="q">質問２</button>
+      <p class="a">回答２</p>
+    </div>
+    <div class="qa">
+      <button class="q">質問３</button>
+      <p class="a">回答３</p>
+    </div>
+  </section>
+  <script>
+    // slideUp
+    const slideUp = (el, duration = 300) => {
+      el.style.height = el.offsetHeight + "px";
+      el.offsetHeight;
+      el.style.transitionProperty = "height, margin, padding";
+      el.style.transitionDuration = duration + "ms";
+      el.style.transitionTimingFunction = "ease";
+      el.style.overflow = "hidden";
+      el.style.height = 0;
+      el.style.paddingTop = 0;
+      el.style.paddingBottom = 0;
+      el.style.marginTop = 0;
+      el.style.marginBottom = 0;
+      setTimeout(() => {
+        el.style.display = "none";
+        el.style.removeProperty("height");
+        el.style.removeProperty("padding-top");
+        el.style.removeProperty("padding-bottom");
+        el.style.removeProperty("margin-top");
+        el.style.removeProperty("margin-bottom");
+        el.style.removeProperty("overflow");
+        el.style.removeProperty("transition-duration");
+        el.style.removeProperty("transition-property");
+        el.style.removeProperty("transition-timing-function");
+      }, duration);
+    };
+
+    // slideDown
+    const slideDown = (el, duration = 300) => {
+      el.style.removeProperty("display");
+      let display = window.getComputedStyle(el).display;
+      if (display === "none") {
+        display = "block";
+      }
+      el.style.display = display;
+      let height = el.offsetHeight;
+      el.style.overflow = "hidden";
+      el.style.height = 0;
+      el.style.paddingTop = 0;
+      el.style.paddingBottom = 0;
+      el.style.marginTop = 0;
+      el.style.marginBottom = 0;
+      el.offsetHeight;
+      el.style.transitionProperty = "height, margin, padding";
+      el.style.transitionDuration = duration + "ms";
+      el.style.transitionTimingFunction = "ease";
+      el.style.height = height + "px";
+      el.style.removeProperty("padding-top");
+      el.style.removeProperty("padding-bottom");
+      el.style.removeProperty("margin-top");
+      el.style.removeProperty("margin-bottom");
+      setTimeout(() => {
+        el.style.removeProperty("height");
+        el.style.removeProperty("overflow");
+        el.style.removeProperty("transition-duration");
+        el.style.removeProperty("transition-property");
+        el.style.removeProperty("transition-timing-function");
+      }, duration);
+    };
+
+    // slideToggle
+    const slideToggle = (el, duration = 300) => {
+      if (window.getComputedStyle(el).display === "none") {
+        return slideDown(el, duration);
+      } else {
+        return slideUp(el, duration);
+      }
+    };
+    const faqQ = document.querySelectorAll('.q')
+    const faqA = document.getElementsByClassName('a')
+    for(let i=0;i<faqQ.length;i++){
+      faqQ[i].addEventListener('click' , function(){
+        slideToggle(faqA[i])
+      })
+    }
+  </script>
+</body>
+</html>
